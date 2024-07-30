@@ -26,7 +26,7 @@ public class BrowserStackDriver implements WebDriverProvider {
         caps.setCapability("browserstack.user", authConfig.userName());
         caps.setCapability("browserstack.key", authConfig.accessKey());
         caps.setCapability("url", config.url());
-        caps.setCapability("app", config.app());
+        caps.setCapability("app_url", config.app());
         caps.setCapability("device", config.deviceName());
         caps.setCapability("platformName", config.platformVersion());
         caps.setCapability("project", config.projectName());

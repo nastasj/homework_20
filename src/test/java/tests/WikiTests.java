@@ -1,6 +1,7 @@
 package tests;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
@@ -25,17 +26,17 @@ public class WikiTests extends TestBase {
                         .shouldHave(sizeGreaterThan(0)));
     }
 
-
     @Test
+    @Tag("android")
     @DisplayName("Check voice search button")
-    void checkTest() {
+    void checkVoiceSearchTest() {
         step("Click on voice search button", () -> {
             $(id("org.wikipedia.alpha:id/voice_search_button")).click();
         });
-
-        step("Check voice search is available", () ->
-                $(id("org.wikipedia.alpha:id/transcription_mic_image_indicator_background")).should(exist));
-                $(id("org.wikipedia.alpha:id/transcription_intent_api_text"))
-                        .shouldHave(text("Try saying something"));
+        step("Check voice search is available", () -> {
+            $(id("com.google.android.tts:id/transcription_mic_image_indicator")).shouldBe(visible);
+            $(id("com.google.android.tts:id/transcription_intent_api_text")).shouldHave(text("Try saying something"));
+        });
     }
 }
+
