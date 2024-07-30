@@ -15,6 +15,7 @@ import static io.qameta.allure.Allure.step;
 public class WikiTests extends TestBase {
 
     @Test
+    @Tag("android")
     @DisplayName("Check successful search case")
     void successfulSearchTest() {
         step("Type search", () -> {
