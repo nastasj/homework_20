@@ -10,8 +10,6 @@ import org.aeonbits.owner.Config;
 
 public interface BrowserStackConfig extends Config {
 
-    String userName();
-    String accessKey();
     String url();
     String app();
     String deviceName();
