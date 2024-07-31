@@ -19,7 +19,7 @@ public class ExplorePage {
         continueButton.click();
     }
 
-    @Step("Check Skip button is visible and clickable")
+    @Step("Check Skip button is visible")
     public ExplorePage checkSkipButton() {
         skipButton.shouldBe(visible);
         return this;

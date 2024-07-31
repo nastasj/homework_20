@@ -76,3 +76,10 @@ task android(type: Test) {
         includeTags("android")
     }
 }
+
+task onboarding(type: Test) {
+    useJUnitPlatform{
+        includeTags("onboarding")
+    }
+}
+

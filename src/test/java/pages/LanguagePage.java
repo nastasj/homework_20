@@ -16,7 +16,7 @@ public class LanguagePage {
             skipButton = $(id("org.wikipedia.alpha:id/fragment_onboarding_skip_button"));
 
 
-    @Step("Check Language button")
+    @Step("Check Language button is visible")
     public LanguagePage checkLanguageButton() {
         addDeleteLanguageButton.shouldBe(visible);
         return this;
@@ -27,7 +27,7 @@ public class LanguagePage {
         continueButton.click();
     }
 
-//    @Step("Check Skip button is visible")
+    @Step("Check Skip button is visible")
     public LanguagePage checkSkipButton() {
         skipButton.shouldBe(visible);
         return this;

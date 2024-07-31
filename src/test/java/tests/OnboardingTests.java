@@ -12,6 +12,7 @@ public class OnboardingTests extends TestBase {
 
     @Test
     @Tag("android")
+    @Tag("onboarding")
     @DisplayName("Check onboarding screens")
     void checkOnboardingScreensTest() {
 

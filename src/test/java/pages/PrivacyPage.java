@@ -19,7 +19,7 @@ public class PrivacyPage {
         startButton.click();
     }
 
-    @Step("Check Skip button is not visible and not clickable")
+    @Step("Check Skip button is not visible")
     public PrivacyPage checkSkipButton() {
         skipButton.shouldNotBe(visible);
         return this;
