@@ -5,7 +5,7 @@ import org.aeonbits.owner.Config;
 @Config.LoadPolicy(Config.LoadType.FIRST)
 @Config.Sources({
         "classpath:${env}.properties",
-        "classpath:android.properties"
+        "classpath:browserstack.properties"
 })
 
 public interface BrowserStackConfig extends Config {

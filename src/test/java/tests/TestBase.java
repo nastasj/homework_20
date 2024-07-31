@@ -4,6 +4,8 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import drivers.BrowserStackDriver;
+import drivers.EmulationDriver;
+import drivers.RealDeviceDriver;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
@@ -17,8 +19,15 @@ public class TestBase {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = null;
-        Configuration.browser = BrowserStackDriver.class.getName();
         Configuration.timeout = 30000;
+        String deviceHost = System.getProperty("deviceHost");
+        if ((deviceHost == null) || deviceHost.equals("browserstack")) {
+            Configuration.browser = BrowserStackDriver.class.getName();
+        } else if (deviceHost.equals("emulation")) {
+            Configuration.browser = EmulationDriver.class.getName();
+        } else {
+            Configuration.browser = RealDeviceDriver.class.getName();
+        }
     }
 
     @BeforeEach
@@ -29,10 +38,12 @@ public class TestBase {
 
     @AfterEach
     void addAttachments() {
-        String sessionId = Selenide.sessionId().toString();
-        System.out.println(sessionId);
         Attach.pageSource();
+        String deviceHost = System.getProperty("deviceHost");
+        if ((deviceHost == null) || deviceHost.equals("browserstack")) {
+            String sessionId = Selenide.sessionId().toString();
+            Attach.addVideo(sessionId);
+        }
         closeWebDriver();
-        Attach.addVideo(sessionId);
     }
 }
