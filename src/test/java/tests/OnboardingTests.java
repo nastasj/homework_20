@@ -11,7 +11,6 @@ import pages.PrivacyPage;
 public class OnboardingTests extends TestBase {
 
     @Test
-    @Tag("android1")
     @Tag("android")
     @DisplayName("Check onboarding screens")
     void checkOnboardingScreensTest() {
